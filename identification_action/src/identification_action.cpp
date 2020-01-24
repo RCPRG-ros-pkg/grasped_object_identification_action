@@ -95,13 +95,21 @@ private:
 
 		Goal g = gh.getGoal();        
 
-        if (g->action == identification_action_msgs::IdentificationGoal::ACTION_MEASUREMENT_BEFORE_OBJECT_IS_GRASPED) 
+        if (g->action == identification_action_msgs::IdentificationGoal::ACTION_FIRST_MEASUREMENT_BEFORE_OBJECT_IS_GRASPED) 
         {
             port_identification_command_.write(1);
         }
-        else if (g->action == identification_action_msgs::IdentificationGoal::ACTION_MEASUREMENT_AFTER_OBJECT_IS_GRASPED)  
+        else if (g->action == identification_action_msgs::IdentificationGoal::ACTION_SECOND_MEASUREMENT_BEFORE_OBJECT_IS_GRASPED)  
         {
         	port_identification_command_.write(2);
+        }
+        else if (g->action == identification_action_msgs::IdentificationGoal::ACTION_FIRST_MEASUREMENT_AFTER_OBJECT_IS_GRASPED)  
+        {
+        	port_identification_command_.write(3);
+        }
+        else if (g->action == identification_action_msgs::IdentificationGoal::ACTION_SECOND_MEASUREMENT_AFTER_OBJECT_IS_GRASPED)  
+        {
+        	port_identification_command_.write(4);
         }
         else
         { 
